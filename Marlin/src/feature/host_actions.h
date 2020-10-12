@@ -16,12 +16,13 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 #pragma once
 
-#include "../inc/MarlinConfig.h"
+#include "../inc/MarlinConfigPre.h"
+#include "../HAL/shared/Marduino.h"
 
 void host_action(PGM_P const pstr, const bool eol=true);
 
@@ -42,6 +43,9 @@ void host_action(PGM_P const pstr, const bool eol=true);
 #endif
 #ifdef ACTION_ON_CANCEL
   void host_action_cancel();
+#endif
+#ifdef ACTION_ON_START
+  void host_action_start();
 #endif
 
 #if ENABLED(HOST_PROMPT_SUPPORT)
